@@ -9,5 +9,9 @@ type ListOpt = "topstories" | "day" | "week";
 export async function getStoryList(opt: ListOpt) {
   const res = await fetch("https://hn.byroni.us/topstories/" + opt);
 
-  return await res.json();
+  const stories = await res.json();
+
+  const goodStories = stories.filter((story: any) => story !== null);
+
+  return goodStories;
 }

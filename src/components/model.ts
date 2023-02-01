@@ -4,7 +4,7 @@ export interface HnItem {
   id: number;
   score: number;
   time: number;
-  title: string;
+  title: string | null;
   type: string;
   url?: string; // optional for Ask HN and internal items
   kidsObj?: Array<HnKidObj | null>;
