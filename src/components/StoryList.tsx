@@ -1,5 +1,6 @@
 import { IconChevronUp, IconMessages } from "@tabler/icons-react";
 import Link from "next/link";
+import { getDomainForUrl } from "../data/getDomainForUrl";
 import { getTimeAgo } from "../timeAgo";
 import { HnItem } from "./model";
 
@@ -35,6 +36,8 @@ export function StoryList(props: StoryListProps) {
               </Link>
 
               <div> {getTimeAgo(story.time)}</div>
+
+              <div>{getDomainForUrl(story.url)}</div>
             </div>
           </div>
         ))}

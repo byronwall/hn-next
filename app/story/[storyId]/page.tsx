@@ -1,4 +1,5 @@
 import { Story } from "../../../src/components/Story";
+import { getStoryData } from "../../../src/data/funcs";
 
 export default async function StoryPage({ params: { storyId } }) {
   const storyData = await getStoryData(storyId);
@@ -8,9 +9,4 @@ export default async function StoryPage({ params: { storyId } }) {
       <Story story={storyData} />
     </div>
   );
-}
-async function getStoryData(storyId: any) {
-  const res = await fetch("https://hn.byroni.us/api/story/" + storyId);
-
-  return res.json();
 }

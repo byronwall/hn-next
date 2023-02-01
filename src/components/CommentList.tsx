@@ -18,9 +18,13 @@ export function CommentList(props: CommentListProps) {
           </div>
           <div
             dangerouslySetInnerHTML={{ __html: comment.text ?? "" }}
-            className="prose"
+            className="prose leading-snug"
           />
-          {comment.kidsObj && <CommentList comments={comment.kidsObj} />}
+          {comment.kidsObj && (
+            <div className="p-2">
+              <CommentList comments={comment.kidsObj} />
+            </div>
+          )}
         </div>
       ))}
     </div>
