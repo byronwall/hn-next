@@ -24,7 +24,7 @@ export function Story(props: StoryProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div>
+      <div className="flex flex-col gap-1">
         <div className="text-xl font-bold">{headerLink}</div>
         <div className="flex gap-4">
           <div>{story.by}</div>
@@ -37,8 +37,6 @@ export function Story(props: StoryProps) {
           className="prose leading-snug"
         />
       </div>
-
-      <div className="p-4" />
 
       {story.kidsObj && <CommentList comments={story.kidsObj} />}
     </div>
