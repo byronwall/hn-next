@@ -6,11 +6,15 @@ import { CommentList } from "./CommentList";
 import { HnItem } from "./model";
 
 type StoryProps = {
-  story: HnItem;
+  story: HnItem | null;
 };
 
 export function Story(props: StoryProps) {
   const { story } = props;
+
+  if (story === null) {
+    return <div>Story not found</div>;
+  }
 
   const headerText = <div>{story.title}</div>;
 
