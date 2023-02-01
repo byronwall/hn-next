@@ -37,7 +37,7 @@ export function Story(props: StoryProps) {
           <div>{getDomainForUrl(story.url)}</div>
         </div>
         <div
-          dangerouslySetInnerHTML={{ __html: story.text }}
+          dangerouslySetInnerHTML={{ __html: story.text ?? "" }}
           className="prose leading-snug"
         />
       </div>
