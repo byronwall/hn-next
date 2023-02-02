@@ -7,7 +7,7 @@ export default function Layout({ children }) {
       <head>
         <title>HN Offline</title>
       </head>
-      <body className="max-w-2xl mx-auto ">
+      <body className="max-w-2xl mx-auto p-4 sm:p-1 ">
         <NavBar />
         <div>{children}</div>
       </body>

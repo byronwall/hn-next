@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { BounceLoader } from "react-spinners";
+
 export function NavBar() {
   return (
     <div className="flex gap-4 p-4 border border-b-red-400">
