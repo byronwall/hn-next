@@ -5,10 +5,6 @@ import localforage from "localforage";
 import { createContext, useContext, useEffect, useRef } from "react";
 import { createStore, useStore } from "zustand";
 
-localforage.config({
-  driver: localforage.INDEXEDDB,
-});
-
 interface AppStoreProps {
   collapsedIds: Record<number, boolean>;
   readIds: Record<number, boolean>;
@@ -101,6 +97,10 @@ export function AppStoreProvider({
   useEffect(() => {
     // push local storage into the store
     async function load() {
+      localforage.config({
+        driver: localforage.INDEXEDDB,
+      });
+
       const storeData = await localforage.getItem<AppStoreProps>(INDEXDB_KEY);
 
       console.log("storeData", storeData);
