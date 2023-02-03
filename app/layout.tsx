@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { NavBar } from "../src/components/NavBar";
+import { AppStoreProvider } from "../src/store";
 
 export default function Layout({ children }) {
   return (
@@ -8,8 +9,10 @@ export default function Layout({ children }) {
         <title>HN Offline</title>
       </head>
       <body className="max-w-2xl mx-auto p-4 sm:p-1 ">
-        <NavBar />
-        <div>{children}</div>
+        <AppStoreProvider>
+          <NavBar />
+          <div>{children}</div>
+        </AppStoreProvider>
       </body>
     </html>
   );

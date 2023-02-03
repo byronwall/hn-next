@@ -1,4 +1,4 @@
-import { getTimeAgo } from "../timeAgo";
+import { Comment } from "./Comment";
 import { HnKidObj } from "./model";
 
 type CommentListProps = {
@@ -11,21 +11,7 @@ export function CommentList(props: CommentListProps) {
   return (
     <div>
       {comments.map((comment) => (
-        <div key={comment.id} className="border-l border-l-red-300 pl-3">
-          <div className="flex gap-4">
-            <div>{comment.by}</div>
-            <div>{getTimeAgo(comment.time)}</div>
-          </div>
-          <div
-            dangerouslySetInnerHTML={{ __html: comment.text ?? "" }}
-            className="prose leading-snug"
-          />
-          {comment.kidsObj && (
-            <div className="p-2">
-              <CommentList comments={comment.kidsObj} />
-            </div>
-          )}
-        </div>
+        <Comment key={comment.id} comment={comment} />
       ))}
     </div>
   );

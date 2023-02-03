@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect } from "react";
 import { getDomainForUrl } from "../data/getDomainForUrl";
+import { useAppStoreContext } from "../store";
 
 import { getTimeAgo } from "../timeAgo";
 import { CommentList } from "./CommentList";
@@ -11,6 +15,14 @@ type StoryProps = {
 
 export function Story(props: StoryProps) {
   const { story } = props;
+
+  const markRead = useAppStoreContext((s) => s.markRead);
+
+  useEffect(() => {
+    if (story) {
+      markRead(story.id);
+    }
+  }, [story, markRead]);
 
   if (story === null) {
     return <div>Story not found</div>;

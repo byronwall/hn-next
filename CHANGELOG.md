@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2023-02-02 22:43:26
+
+- Add support for a global store to hold comment collapse state and read status
+- Add ability to collapse comments on click
+- Store the collapse and read status in IndexedDB so it persists
+  - Consider how to remove data when needed?
+- Improve UI on comments
+
 ## 2023-02-01 23:00:49
 
 - Ensure that API calls are forced to refresh after 60 seconds
