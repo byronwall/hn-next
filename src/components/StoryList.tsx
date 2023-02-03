@@ -27,6 +27,7 @@ export function StoryList(props: StoryListProps) {
                 href={story.url ?? ""}
                 className="text-red-600"
                 target="_blank"
+                prefetch={false}
               >
                 {story.title}
               </Link>
@@ -35,7 +36,11 @@ export function StoryList(props: StoryListProps) {
                   <IconChevronUp />
                   {story.score}
                 </div>
-                <Link href={`/story/${story.id}`} className="text-red-600">
+                <Link
+                  href={`/story/${story.id}`}
+                  className="text-red-600"
+                  prefetch={false}
+                >
                   <div className="flex gap-1">
                     <IconMessages />
                     {story.descendants}
