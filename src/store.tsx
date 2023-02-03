@@ -3,6 +3,7 @@
 import { produce } from "immer";
 import localforage from "localforage";
 import { createContext, useContext, useEffect, useRef } from "react";
+import { useUpdateEffect } from "react-use";
 import { createStore, useStore } from "zustand";
 
 interface AppStoreProps {
@@ -94,7 +95,7 @@ export function AppStoreProvider({
     storeRef.current = createAppStore(props);
   }
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     // push local storage into the store
     async function load() {
       localforage.config({
